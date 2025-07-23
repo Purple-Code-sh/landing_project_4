@@ -1,0 +1,208 @@
+<!-- Modal Form Section -->
+<div id="modal" class="fixed inset-0 z-50 hidden h-full w-full overflow-y-auto bg-gray-600 bg-opacity-60 py-8 backdrop-blur-sm">
+  <div class="relative top-5 mx-auto w-11/12 rounded-lg border bg-white p-5 pt-10 shadow-lg md:w-2/3 xl:w-1/2">
+    <button id="close-modal" class="absolute right-4 top-4 text-gray-400 transition duration-150 ease-in-out hover:text-gray-600">
+      <svg class="h-6 w-6 lg:h-8 lg:w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Header del modal -->
+    <div class="mb-6 md:mb-8 xl:mb-10">
+      <h3 class="text-center text-xl font-bold text-gray-900 md:text-2xl 2xl:text-3xl">¡Ya casi es tuyo!</h3>
+      <p class="text-center font-light text-gray-700 lg:text-lg">Finaliza tu pedido, solo ingresa tus datos aquí ↓</p>
+    </div>
+
+    <!-- Contenido del modal -->
+    <div class="mt-2">
+      <form id="ss-contact-form" class="mx-auto grid w-full max-w-md place-items-center space-y-6 rounded-2xl border-4 border-white/80 bg-white/60 p-0">
+        <div class="flex w-full flex-col gap-2">
+          <div class="relative">
+            <input
+              type="text"
+              id="ss-fullName"
+              name="ss-fullName"
+              placeholder="Tu Nombre completo"
+              class="text-secondary-600 w-full rounded-lg border border-gray-400 bg-white p-3 focus:border-2 focus:border-primary focus:outline-none"
+            />
+          </div>
+        </div>
+
+        <div class="flex w-full flex-col gap-2">
+          <div class="relative">
+            <input
+              type="email"
+              id="ss-email"
+              name="ss-email"
+              placeholder="Tu correo electrónico"
+              class="text-secondary-600 w-full rounded-lg border border-gray-400 bg-white p-3 focus:border-2 focus:border-primary focus:outline-none"
+            />
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="ss-phone-container relative z-10 w-full" id="ss-phone-container-1">
+          <div class="flex w-full overflow-hidden rounded-md border border-gray-400">
+            <button type="button" id="ss-country-selector" class="ss-country-selector flex cursor-pointer items-center space-x-1 border-r border-gray-300 bg-white p-3">
+              <img class="ss-selected-flag h-auto w-5 rounded-sm object-contain" src="https://flagcdn.com/16x12/mx.webp" alt="Bandera Nacional" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div class="font-poppins flex w-full flex-1 items-center gap-2 bg-white p-3">
+              <span id="ss-phone-code" class="text-[#656565]"></span>
+
+              <input type="tel" name="ss-phone" placeholder="Tu número de teléfono" class="h-full w-full focus:outline-none" />
+            </div>
+          </div>
+          <div id="phone-error-1" class="mt-1 hidden text-base text-red-500"></div>
+
+          <div class="ss-country-dropdown font-poppins absolute left-0 top-full z-10 mt-1 hidden max-h-60 w-64 overflow-y-auto rounded-md border border-gray-300 bg-white text-sm shadow-lg"></div>
+        </div>
+
+        <div class="flex justify-start">
+          <p class="w-full">Dirección de entrega</p>
+        </div>
+        <div class="flex w-full flex-col gap-2">
+          <div class="relative">
+            <input
+              type="number"
+              id="ss-postalCode"
+              name="ss-postalCode"
+              placeholder="Código Postal"
+              class="text-secondary-600 w-full rounded-lg border border-gray-400 bg-white p-3 focus:border-2 focus:border-primary focus:outline-none"
+              required
+            />
+          </div>
+
+          <div class="relative">
+            <input
+              type="text"
+              id="ss-state"
+              name="ss-state"
+              placeholder="Estado"
+              class="text-secondary-600 w-full rounded-lg border border-gray-400 bg-white p-3 focus:border-2 focus:border-primary focus:outline-none"
+              required
+            />
+          </div>
+          <div class="relative">
+            <input
+              type="text"
+              id="ss-city"
+              name="ss-city"
+              placeholder="Municipio o Alcaldía"
+              class="text-secondary-600 w-full rounded-lg border border-gray-400 bg-white p-3 focus:border-2 focus:border-primary focus:outline-none"
+              required
+            />
+          </div>
+          <div class="relative">
+            <input
+              type="text"
+              id="ss-colonia"
+              name="ss-colonia"
+              placeholder="Localidad, Colonia o Barrio"
+              class="text-secondary-600 w-full rounded-lg border border-gray-400 bg-white p-3 focus:border-2 focus:border-primary focus:outline-none"
+              required
+            />
+          </div>
+
+          <div class="relative">
+            <input
+              type="text"
+              id="ss-street"
+              name="ss-street"
+              placeholder="Calle y número"
+              class="text-secondary-600 w-full rounded-lg border border-gray-400 bg-white p-3 focus:border-2 focus:border-primary focus:outline-none"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-start">
+          <p class="w-full">Métodos de pago</p>
+        </div>
+        <div class="w-full">
+          <select
+            id="ss-payment"
+            name="ss-payment"
+            required
+            class="text-secondary-600 w-full appearance-none rounded-lg border border-gray-400 p-4 text-sm font-normal shadow-sm outline-none transition-colors focus:border-2 focus:border-primary focus:outline-none focus:ring-1"
+            style="
+              background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23111827%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+              background-size: 0.7em;
+              background-position: right 0.7em center;
+              background-repeat: no-repeat;
+            "
+          >
+            <option value="">Selecciona la forma de pago</option>
+            <option value="Cash">En efectivo, contra entrega</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="mx-auto w-full cursor-pointer rounded-full border border-black/20 bg-primary px-6 py-2 font-bold text-white opacity-90 shadow-lg transition-all duration-300 hover:scale-[102%] hover:opacity-100 active:underline lg:text-xl"
+        >
+          Enviar
+        </button>
+      </form>
+    </div>
+
+    <div class="mt-6 text-center text-sm text-primary lg:text-base">
+      <!-- <p>* El pago se realizará contra la entrega del producto</p> -->
+      <p>Te mantendremos informado del estado y envío de tu pedido.</p>
+    </div>
+
+    <!-- Footer del modal -->
+    <div class="flex items-center justify-end space-x-2 pt-4">
+      <button id="cancel-btn" class="rounded-md bg-gray-300 px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-gray-400">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script defer>
+  // Obtener elementos del DOM
+  const modal = document.getElementById('modal');
+  const openBtn = document.getElementById('pedido-btn');
+  const closeBtn = document.getElementById('close-modal');
+  const cancelBtn = document.getElementById('cancel-btn');
+
+  // Función para abrir el modal
+  function openModal() {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+  }
+
+  // Función para cerrar el modal
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto'; // Restaurar scroll del body
+  }
+
+  // Event listeners
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  cancelBtn.addEventListener('click', closeModal);
+
+  // Cerrar modal al hacer clic fuera de él
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Cerrar modal con tecla Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>
+
+<script src="/src/toast.js" defer></script>
+<script src="/src/navbar-script.js" defer></script>
+<script src="/src/form.js" type="module"></script>
+<script src="/src/local-storage-manager.js" defer></script>
+<script src="/src/main.js" defer></script>
+<script src="/src/shopping-cart.js" defer></script>
+<script src="/src/form-modal.js" type="module" defer></script>

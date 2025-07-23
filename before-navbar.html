@@ -1,0 +1,46 @@
+<button onclick="shoppingCart.toggleCartSection()" id="cart-button" class="fixed bottom-4 right-4 z-50 hidden rounded-full bg-[#2F2F2F]">
+  <div class="relative p-3">
+    <span id="cart-button-span" class="absolute right-0 top-0 grid size-4 place-items-center rounded-full bg-primary text-xs font-semibold leading-none text-white"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+      <path
+        fill="#ffffff"
+        d="M7 22q-.825 0-1.412-.587T5 20t.588-1.412T7 18t1.413.588T9 20t-.587 1.413T7 22m10 0q-.825 0-1.412-.587T15 20t.588-1.412T17 18t1.413.588T19 20t-.587 1.413T17 22M6.15 6l2.4 5h7l2.75-5zM5.2 4h16.5l-4.975 9H8.1L7 15h12v2H3.625L6.6 11.6L3 4H1V2h3.25zm3.35 7h7z"
+      ></path>
+    </svg>
+  </div>
+</button>
+
+<article
+  id="cart-section"
+  class="xss:w-2/3 fixed right-0 top-0 z-[60] hidden h-screen w-full overflow-y-auto bg-white px-5 pt-5 shadow-2xl shadow-black/50 backdrop-blur-sm sm:w-1/2 lg:w-full lg:max-w-[500px] lg:shadow-black/35"
+>
+  <div class="relative flex min-h-full flex-col justify-between">
+    <section class="sticky left-1 top-0 z-50 flex justify-end">
+      <button id="close-cart-button" class="rounded-full bg-white p-2 shadow-xl transition-all duration-150 hover:scale-95" onclick="shoppingCart.toggleCartSection()">
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxwYXRoIGZpbGw9IiMwMDAwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0ibTM5MC4yNDkgOTEuNTgybDMwLjE3IDMwLjE3TDI4Ni4xNjkgMjU2bDEzNC4yNSAxMzQuMjQ5bC0zMC4xNyAzMC4xN0wyNTYgMjg2LjE2OWwtMTM0LjI0OCAxMzQuMjVsLTMwLjE3LTMwLjE3TDIyNS44MyAyNTZMOTEuNTgyIDEyMS43NTJsMzAuMTctMzAuMTdMMjU2IDIyNS44M3oiLz48L3N2Zz4="
+          alt="Close"
+          class="size-6 cursor-pointer object-contain transition-all duration-200 hover:scale-95"
+        />
+      </button>
+    </section>
+    <div class="relative flex min-h-full flex-1 flex-col overflow-y-auto pt-4">
+      <div id="product-list" class="mt-4 flex flex-col gap-4"></div>
+    </div>
+
+    <section id="summary" class="sticky bottom-0 mb-5 mt-4 flex h-max w-full flex-col items-center justify-center gap-4 bg-zinc-100 px-6 py-6 shadow-md sm:px-10">
+      <article class="flex flex-col items-center justify-start gap-6 sm:flex-row sm:justify-between">
+        <div class="flex items-center gap-4">
+          <span class="text-xl font-semibold text-[#2F2F2F]">Total</span>
+          <span id="total-price" class="text-xl font-semibold text-[#2F2F2F]">$0</span>
+        </div>
+
+        <div>
+          <button id="pedido-btn" onclick="shoppingCart.toggleCartSection()" class="rounded-lg bg-primary px-6 py-1.5 text-white transition-all duration-200 hover:scale-95">Realizar pedido</button>
+        </div>
+      </article>
+
+      <p class="text-sm font-light text-primary">* El pago se realizará contra la entrega del producto</p>
+    </section>
+  </div>
+</article>
