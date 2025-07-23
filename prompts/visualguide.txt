@@ -1,0 +1,1 @@
+also add a visual guide to see what option is the user selecting, because is not working well with tailwind, maybe you can add a border to the option that user select (I refer to the "residential property" or "commercial property" options)
