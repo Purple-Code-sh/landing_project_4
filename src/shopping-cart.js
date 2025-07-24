@@ -270,7 +270,7 @@ class ShoppingCart {
                   >
                     ${this.generateQuantityOptions(quantity)}
                   </select>
-                  <p class="text-base font-medium product-total-price">&dollar;${totalPrice.toFixed(2)}</p>
+                  <p class="text-base font-medium product-total-price">${totalPrice.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })}</p>
                 </div>
               </div>
             </section>
